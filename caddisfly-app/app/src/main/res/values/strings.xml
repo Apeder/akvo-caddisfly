@@ -195,4 +195,9 @@
     <string name="better_light_required">Better light required</string>
     <string name="color_card_not_found">Colour card not found</string>
 
+    <!--App version expiry-->
+    <string name="versionExpired">Version expired</string> 
+    <string name="thisVersionHasExpired">This version of the app has expired.</string> 
+    <string name="uninstallAndInstallFromStore">Please uninstall and then install the latest version from Play Store.</string>
+
 </resources>
