@@ -119,7 +119,7 @@
             android:ellipsize="none"
             android:gravity="start"
             android:maxLines="1"
-            android:text="@string/diagnostics"
+            android:text="@string/demoVersion"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#2a01a2bc"
             android:textSize="46dp"

@@ -21,6 +21,7 @@ package org.akvo.caddisfly.util;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.os.Build;
 import android.os.Environment;
 import android.util.Log;
 
@@ -43,6 +44,7 @@ import java.io.PrintWriter;
 import java.io.Writer;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
+import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
@@ -128,7 +130,11 @@ public final class FileUtil {
             try {
 
                 fis = new FileInputStream(file);
-                isr = new InputStreamReader(fis, StandardCharsets.UTF_8);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                    isr = new InputStreamReader(fis, StandardCharsets.UTF_8);
+                } else {
+                    isr = new InputStreamReader(fis, Charset.forName("UTF-8"));
+                }
 
                 StringBuilder stringBuilder = new StringBuilder();
 
@@ -180,7 +186,11 @@ public final class FileUtil {
             try {
 
                 fis = new FileInputStream(file);
-                isr = new InputStreamReader(fis, StandardCharsets.UTF_8);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                    isr = new InputStreamReader(fis, StandardCharsets.UTF_8);
+                } else {
+                    isr = new InputStreamReader(fis, Charset.forName("UTF-8"));
+                }
                 bufferedReader = new BufferedReader(isr);
 
                 String line;
@@ -309,8 +319,14 @@ public final class FileUtil {
         FileOutputStream outputStream = null;
         try {
             outputStream = context.openFileOutput(fileName, Context.MODE_PRIVATE);
-            for (byte s : json.getBytes(StandardCharsets.UTF_8)) {
-                outputStream.write(s);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                for (byte s : json.getBytes(StandardCharsets.UTF_8)) {
+                    outputStream.write(s);
+                }
+            } else {
+                for (byte s : json.getBytes(Charset.forName("UTF-8"))) {
+                    outputStream.write(s);
+                }
             }
         } catch (Exception e) {
             Log.e(TAG, e.getMessage(), e);
@@ -332,7 +348,12 @@ public final class FileUtil {
         try {
             FileInputStream fis = new FileInputStream(file);
             DataInputStream in = new DataInputStream(fis);
-            BufferedReader br = new BufferedReader(new InputStreamReader(in, StandardCharsets.UTF_8));
+            BufferedReader br;
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
+                br = new BufferedReader(new InputStreamReader(in, StandardCharsets.UTF_8));
+            } else {
+                br = new BufferedReader(new InputStreamReader(in, Charset.forName("UTF-8")));
+            }
             String line;
 
             StringBuilder stringBuilder = new StringBuilder();

@@ -26,10 +26,10 @@ android {
 
     defaultConfig {
         applicationId "org.akvo.caddisfly"
-        minSdkVersion 19
+        minSdkVersion 17
         targetSdkVersion 25
-        versionCode 168
-        versionName "1.0.0 Beta 8.6"
+        versionCode 169
+        versionName "1.0.0 Demo Version 8.7"
         resConfigs "en", "en_US", "fr", "in"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         applicationVariants.all { variant ->
@@ -102,7 +102,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.1.1'
     compile 'com.android.support:design:25.1.1'
     compile 'com.github.felHR85:UsbSerial:4.5.1'
-    compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
+    compile 'com.android.support.constraint:constraint-layout:1.0.0-beta5'
     compile 'com.jakewharton.timber:timber:4.5.1'
     compile 'com.jakewharton:butterknife:8.5.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
@@ -114,5 +114,4 @@ dependencies {
     androidTestCompile 'com.android.support.test:runner:0.5'
     androidTestCompile 'com.android.support:support-annotations:25.1.1'
     androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.2'
-    androidTestCompile 'com.android.support.test.uiautomator:uiautomator-v18:2.1.2'
 }

@@ -28,6 +28,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.util.TypedValue;
@@ -71,6 +72,10 @@ public class MainActivity extends BaseActivity {
     View coordinatorLayout;
     @BindView(R.id.layoutDiagnostics)
     View layoutDiagnostics;
+
+    @BindView(R.id.fabDisableDiagnostics)
+    FloatingActionButton fabDisableDiagnostics;
+
     private Runnable finishRunnable;
 
     @Override
@@ -196,9 +201,9 @@ public class MainActivity extends BaseActivity {
      */
     private void switchLayoutForDiagnosticOrUserMode() {
         if (AppPreferences.isDiagnosticMode()) {
-            layoutDiagnostics.setVisibility(View.VISIBLE);
+            fabDisableDiagnostics.setVisibility(View.VISIBLE);
         } else {
-            layoutDiagnostics.setVisibility(View.GONE);
+            fabDisableDiagnostics.setVisibility(View.GONE);
         }
     }
 

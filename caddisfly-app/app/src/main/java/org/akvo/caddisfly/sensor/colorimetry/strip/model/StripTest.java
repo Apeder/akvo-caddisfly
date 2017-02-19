@@ -19,6 +19,8 @@
 
 package org.akvo.caddisfly.sensor.colorimetry.strip.model;
 
+import android.os.Build;
+
 import org.akvo.caddisfly.helper.FileHelper;
 import org.akvo.caddisfly.preference.AppPreferences;
 import org.akvo.caddisfly.sensor.SensorConstants;
@@ -105,7 +107,11 @@ public class StripTest {
                         JSONObject strip = stripTests.getJSONObject(i);
                         String subtype = strip.getString("subtype");
                         if (!subtype.equals("striptest")) {
-                            stripTests.remove(i);
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                                stripTests.remove(i);
+                            } else {
+                                stripTests = removeItem(stripTests, i);
+                            }
                         }
                     }
 
@@ -120,6 +126,23 @@ public class StripTest {
 
         return null;
     }
+
+    private JSONArray removeItem(JSONArray array, int position) {
+        JSONArray list = new JSONArray();
+        int len = array.length();
+        for (int i = 0; i < len; i++) {
+            //Excluding the item at position
+            if (i != position) {
+                try {
+                    list.put(array.get(i));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return list;
+    }
+
 
     public List<Brand> getBrandsAsList() {
 
@@ -193,6 +216,9 @@ public class StripTest {
                         strip = stripsJson.getJSONObject(i);
                         if (strip.getString(SensorConstants.UUID).equalsIgnoreCase(uuid)) {
                             try {
+                                if (!strip.has("length")) {
+                                    continue;
+                                }
                                 stripLength = strip.getDouble("length");
                                 //stripHeight = strip.getDouble("height");
                                 groupingType = strip.getString("groupingType")

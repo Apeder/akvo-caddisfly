@@ -99,4 +99,6 @@
     <string name="fileSaved">File saved</string>
     <string name="calibrationLoaded">%1$s loaded</string>
 
+    <string name="demoVersion">Demo Version</string>
+
 </resources>
