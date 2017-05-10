@@ -661,6 +661,57 @@
       ]
     },
     {
+      "name": "Water - Chromium 1",
+      "subtype": "liquid-chamber",
+      "uuid": "082ec36a-71af-49d5-add8-5c03fc1c2f0b",
+      "shortCode": "chro1",
+      "calibrate": "true",
+      "ranges": "0,25,50,75,100,5000,10000,25000",
+      "monthsValid": "3",
+      "results": [
+        {
+          "id": 1,
+          "name": "Chromium",
+          "unit": "ppb",
+          "timeDelay": 300
+        }
+      ]
+    },
+    {
+      "name": "Water - Chromium 2",
+      "subtype": "liquid-chamber",
+      "uuid": "4970bfed-d289-429c-b4c0-5645ec6fd5af",
+      "shortCode": "chro2",
+      "calibrate": "true",
+      "ranges": " 0,0.025,0.050,0.075,0.100,0.5,1.0",
+      "monthsValid": "3",
+      "results": [
+        {
+          "id": 1,
+          "name": "Chromium",
+          "unit": "ppm",
+          "timeDelay": 300
+        }
+      ]
+    },
+    {
+      "name": "Water - Chromium 3",
+      "subtype": "liquid-chamber",
+      "uuid": "e0730417-b475-4484-b9e0-a5e2b2b65e8c",
+      "shortCode": "chro3",
+      "calibrate": "true",
+      "ranges": "0,1,5,15,25",
+      "monthsValid": "3",
+      "results": [
+        {
+          "id": 1,
+          "name": "Chromium",
+          "unit": "ppm",
+          "timeDelay": 300
+        }
+      ]
+    },
+    {
       "name": "Water - Fluoride",
       "description": "Measures Fluoride in water. 0 - 2 ppm",
       "subtype": "liquid-chamber",
@@ -974,6 +1025,22 @@
               "lab":[61.65,49.53,-15.35]
             }
           ]
+        }
+      ]
+    },
+    {
+      "name": "Water - pH",
+      "subtype": "liquid-chamber",
+      "uuid": "4d3a7d6d-2f11-49de-9f7f-9e21e840df93",
+      "shortCode": "phydr",
+      "calibrate": "true",
+      "ranges": "4,5,6,7,8,9,10",
+      "monthsValid": "12",
+      "results": [
+        {
+          "id": 1,
+          "name": "Water - pH",
+          "unit": ""
         }
       ]
     },
